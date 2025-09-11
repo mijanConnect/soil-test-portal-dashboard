@@ -332,8 +332,8 @@ select {
 .custom-input-ant-modal {
   padding: 8px 12px !important;
   background: transparent !important;
-  color: #071952 !important;
-  border: 1px solid #071952 !important;
+  color: #1c1c1c !important;
+  border: 1px solid #1c1c1c !important;
   border-radius: 6px !important;
   height: 40px !important;
 }
@@ -348,7 +348,7 @@ select {
   background: transparent !important;
   height: 40px !important;
   line-height: 40px !important;
-  border: 1px solid #071952 !important;
+  border: 1px solid #1c1c1c !important;
   box-shadow: none !important;
   border-radius: 6px !important;
 }
@@ -364,13 +364,36 @@ select {
 .custom-select-ant-modal .ant-select-arrow {
   top: 80% !important;
   transform: translateY(-50%) !important;
-  color: #071952 !important;
+  color: #9d9ea1 !important;
 }
 
 /* Remove focus styles */
 .custom-select-ant-modal.ant-select-focused .ant-select-selector {
-  border-color: #071952 !important;
+  border-color: #1c1c1c !important;
   box-shadow: none !important;
+}
+
+/* Change selected text color for custom Select */
+.custom-select-ant-modal .ant-select-selection-item {
+  color: #1c1c1c !important; /* your desired color */
+}
+
+/* Optional: placeholder color */
+.custom-select-ant-modal .ant-select-selection-placeholder {
+  color: #9d9ea1 !important;
+}
+
+.custom-form-item-ant .ant-form-item-label > label {
+  color: #1c1c1c;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Change Form.Item label text color for Select */
+.custom-form-item-ant-select .ant-form-item-label > label {
+  color: #1c1c1c; /* desired label color */
+  font-weight: 600; /* optional font weight */
+  font-size: 14px; /* optional font size */
 }
 
 /* Reduce bottom margin */
@@ -379,4 +402,24 @@ select {
 }
 .custom-form-item-ant-select {
   margin-bottom: 8px !important; /* adjust as needed */
+}
+
+.custom-form-item-ant-select .ant-form-item-explain {
+  margin-top: 7px;
+}
+
+.custom-input-ant-modal textarea {
+  height: auto !important; /* allow rows/inline height to work */
+  min-height: 40px; /* normal input minimum height */
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+}
+
+/* Make Ant Upload wrapper and button full width */
+.ant-upload {
+  width: 100% !important;
+}
+
+.ant-upload > .ant-btn {
+  width: 100% !important;
 }

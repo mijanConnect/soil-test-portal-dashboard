@@ -40,14 +40,14 @@ const UploadDocument = () => {
         onFinish={handleSubmit}
         className="space-y-4"
       >
-        <div className="border-2 border-primary pt-12 pl-12 pr-12 pb-5 rounded-lg">
+        <div className="border-2 border-primary p-12 rounded-lg">
           <div className="flex gap-6">
             {/* Left side */}
-            <div className="flex-1">
-              {/* Title */}
+            <div className="flex-1 flex flex-col space-y-6">
               <Form.Item
                 label="Title"
                 name="title"
+                className="custom-form-item-ant"
                 rules={[
                   {
                     required: true,
@@ -55,13 +55,16 @@ const UploadDocument = () => {
                   },
                 ]}
               >
-                <Input placeholder="Enter document title" className="w-full" />
+                <Input
+                  placeholder="Enter document title"
+                  className="custom-input-ant-modal w-full"
+                />
               </Form.Item>
 
-              {/* Short Description */}
               <Form.Item
                 label="Short Description"
                 name="shortDescription"
+                className="custom-form-item-ant"
                 rules={[
                   {
                     required: true,
@@ -71,22 +74,25 @@ const UploadDocument = () => {
               >
                 <Input
                   placeholder="Enter a brief description"
-                  className="w-full"
+                  className="custom-input-ant-modal w-full"
                 />
               </Form.Item>
             </div>
 
             {/* Right side */}
-            <div className="flex-1">
-              {/* Category */}
+            <div className="flex-1 flex flex-col space-y-6">
               <Form.Item
                 label="Category"
                 name="category"
+                className="custom-form-item-ant-select"
                 rules={[
                   { required: true, message: "Please select a category" },
                 ]}
               >
-                <Select placeholder="Select category" className="w-full">
+                <Select
+                  placeholder="Select category"
+                  className="custom-select-ant-modal w-full"
+                >
                   {categories.map((cat) => (
                     <Option key={cat} value={cat}>
                       {cat}
@@ -95,10 +101,10 @@ const UploadDocument = () => {
                 </Select>
               </Form.Item>
 
-              {/* File Upload */}
               <Form.Item
-                label="Upload File"
+                label="File upload (PDF/images)"
                 name="file"
+                className="custom-form-item-ant"
                 rules={[{ required: true, message: "Please upload a file" }]}
               >
                 <Upload
@@ -108,9 +114,14 @@ const UploadDocument = () => {
                   multiple
                   accept=".pdf,.png,.jpg,.jpeg"
                   className="w-full"
+                  style={{ width: "100%" }} // ensures wrapper is full width
                 >
-                  <Button icon={<UploadOutlined />} className="w-full">
-                    Click to Upload (PDF/Images)
+                  <Button
+                    icon={<UploadOutlined />}
+                    className="custom-input-ant-modal w-full"
+                    style={{ width: "100%" }} // ensures button itself is full width
+                  >
+                    Choose File
                   </Button>
                 </Upload>
               </Form.Item>
@@ -121,6 +132,7 @@ const UploadDocument = () => {
           <Form.Item
             label="Detailed Description"
             name="detailedDescription"
+            className="custom-form-item-ant mt-6"
             rules={[
               { required: true, message: "Please enter detailed description" },
             ]}
@@ -128,6 +140,8 @@ const UploadDocument = () => {
             <TextArea
               rows={5}
               placeholder="Enter detailed description here..."
+              className="custom-input-ant-modal"
+              style={{ minHeight: 140 }} // fallback height
             />
           </Form.Item>
         </div>
