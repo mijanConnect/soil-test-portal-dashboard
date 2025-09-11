@@ -33,87 +33,110 @@ const UploadDocument = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 border border-primary rounded-md shadow-sm bg-white">
-      <p className="text-[22px] font-bold text-primary mb-4">Upload Document</p>
+    <div className="max-w-6xl mx-auto mt-8 rounded-md shadow-sm bg-white">
       <Form
         form={form}
         layout="vertical"
         onFinish={handleSubmit}
         className="space-y-4"
       >
-        {/* Title */}
-        <Form.Item
-          label="Title"
-          name="title"
-          rules={[
-            { required: true, message: "Please enter the document title" },
-          ]}
-        >
-          <Input placeholder="Enter document title" />
-        </Form.Item>
+        <div className="border-2 border-primary pt-12 pl-12 pr-12 pb-5 rounded-lg">
+          <div className="flex gap-6">
+            {/* Left side */}
+            <div className="flex-1">
+              {/* Title */}
+              <Form.Item
+                label="Title"
+                name="title"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter the document title",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter document title" className="w-full" />
+              </Form.Item>
 
-        {/* Short Description */}
-        <Form.Item
-          label="Short Description"
-          name="shortDescription"
-          rules={[
-            { required: true, message: "Please enter a short description" },
-          ]}
-        >
-          <Input placeholder="Enter a brief description" />
-        </Form.Item>
+              {/* Short Description */}
+              <Form.Item
+                label="Short Description"
+                name="shortDescription"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter a short description",
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Enter a brief description"
+                  className="w-full"
+                />
+              </Form.Item>
+            </div>
 
-        {/* Category */}
-        <Form.Item
-          label="Category"
-          name="category"
-          rules={[{ required: true, message: "Please select a category" }]}
-        >
-          <Select placeholder="Select category">
-            {categories.map((cat) => (
-              <Option key={cat} value={cat}>
-                {cat}
-              </Option>
-            ))}
-          </Select>
-        </Form.Item>
+            {/* Right side */}
+            <div className="flex-1">
+              {/* Category */}
+              <Form.Item
+                label="Category"
+                name="category"
+                rules={[
+                  { required: true, message: "Please select a category" },
+                ]}
+              >
+                <Select placeholder="Select category" className="w-full">
+                  {categories.map((cat) => (
+                    <Option key={cat} value={cat}>
+                      {cat}
+                    </Option>
+                  ))}
+                </Select>
+              </Form.Item>
 
-        {/* File Upload */}
-        <Form.Item
-          label="Upload File"
-          name="file"
-          rules={[{ required: true, message: "Please upload a file" }]}
-        >
-          <Upload
-            fileList={fileList}
-            onChange={handleFileChange}
-            beforeUpload={() => false} // prevent automatic upload
-            multiple
-            accept=".pdf,.png,.jpg,.jpeg"
+              {/* File Upload */}
+              <Form.Item
+                label="Upload File"
+                name="file"
+                rules={[{ required: true, message: "Please upload a file" }]}
+              >
+                <Upload
+                  fileList={fileList}
+                  onChange={handleFileChange}
+                  beforeUpload={() => false}
+                  multiple
+                  accept=".pdf,.png,.jpg,.jpeg"
+                  className="w-full"
+                >
+                  <Button icon={<UploadOutlined />} className="w-full">
+                    Click to Upload (PDF/Images)
+                  </Button>
+                </Upload>
+              </Form.Item>
+            </div>
+          </div>
+
+          {/* Detailed Description */}
+          <Form.Item
+            label="Detailed Description"
+            name="detailedDescription"
+            rules={[
+              { required: true, message: "Please enter detailed description" },
+            ]}
           >
-            <Button icon={<UploadOutlined />}>
-              Click to Upload (PDF/Images)
-            </Button>
-          </Upload>
-        </Form.Item>
-
-        {/* Detailed Description */}
-        <Form.Item
-          label="Detailed Description"
-          name="detailedDescription"
-          rules={[
-            { required: true, message: "Please enter detailed description" },
-          ]}
-        >
-          <TextArea rows={5} placeholder="Enter detailed description here..." />
-        </Form.Item>
+            <TextArea
+              rows={5}
+              placeholder="Enter detailed description here..."
+            />
+          </Form.Item>
+        </div>
 
         {/* Submit Button */}
         <Form.Item>
           <Button
-            type="primary"
             htmlType="submit"
-            className="bg-primary !text-white hover:!text-secondary hover:!bg-white hover:!border-primary px-6 py-3 rounded-md text-[16px] font-semibold"
+            className="w-full mt-4 bg-primary !text-white hover:!text-secondary hover:!bg-white hover:!border-primary px-[50px] py-[20px] rounded-lg text-[16px] font-medium"
           >
             Submit
           </Button>

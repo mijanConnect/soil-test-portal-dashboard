@@ -212,29 +212,41 @@ const SubmissionManagement = () => {
         {/* Tabs */}
         <div className="flex gap-3">
           <Button
-            type={activeTab === "myDocuments" ? "primary" : "default"}
+            type="primary"
             onClick={() => setActiveTab("myDocuments")}
-            className="px-[50px] py-[20px] rounded-lg text-[16px] font-medium"
+            className={`px-[50px] py-[20px] rounded-lg text-[16px] font-medium 
+      ${
+        activeTab === "myDocuments"
+          ? "bg-primary !text-white border-primary"
+          : "bg-white !text-secondary border-primary hover:bg-primary hover:!text-white"
+      }`}
           >
             My Documents
           </Button>
+
           <Button
-            type={activeTab === "userDocuments" ? "primary" : "default"}
+            type="primary"
             onClick={() => setActiveTab("userDocuments")}
-            className="px-[50px] py-[20px] rounded-lg text-[16px] font-semibold"
+            className={`px-[50px] py-[20px] rounded-lg text-[16px] font-medium 
+      ${
+        activeTab === "userDocuments"
+          ? "bg-primary !text-white border-primary"
+          : "bg-white !text-secondary border-primary hover:bg-primary hover:!text-white"
+      }`}
           >
             User's Documents
           </Button>
         </div>
 
         {/* Search */}
-        <div className="">
+        <div className="w-500">
           <Input.Search
-            placeholder="Search by Title, Email, Category"
+            placeholder="Search"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            style={{ width: 300 }}
             allowClear
+            enterButton
+            className="custom-search"
           />
         </div>
       </div>
