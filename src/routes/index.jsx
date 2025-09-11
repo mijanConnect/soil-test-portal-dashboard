@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Auth from "../Layout/Auth/Auth";
 import Main from "../Layout/Main/Main";
 import Home from "../Pages/Dashboard/Home";
@@ -60,11 +60,7 @@ const router = createBrowserRouter([
       // Dashboard home
       {
         path: "/",
-        element: (
-          <PrivateRoute allowedRoles={["ADMIN", "EMPLOYEE", "USER"]}>
-            <Home />
-          </PrivateRoute>
-        ),
+        element: <Navigate to="/submission-management" replace />,
       },
       {
         path: "/submission-management",
