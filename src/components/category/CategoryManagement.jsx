@@ -263,7 +263,6 @@ const CategoryManagement = () => {
 
       {/* View/Edit Modal */}
       <Modal
-        title="Edit Category"
         visible={isViewModalVisible}
         onCancel={handleCloseViewModal}
         width={500}
@@ -271,38 +270,61 @@ const CategoryManagement = () => {
         okText="Save Changes"
       >
         {selectedRecord && (
-          <Form form={viewForm} layout="vertical">
-            <Form.Item
-              name="categoryName"
-              label="Category Name"
-              rules={[
-                { required: true, message: "Please enter category name" },
-              ]}
+          <div className="flex flex-col gap-2 w-full rounded-md mb-8">
+            <p className="text-[22px] font-bold">Edit Category</p>
+            <Form
+              form={viewForm}
+              layout="vertical"
+              className="flex flex-col space-y-6 mb-6"
             >
-              <Input />
-            </Form.Item>
-          </Form>
+              <Form.Item
+                name="categoryName"
+                label={<span className="custom-label-ant">Category Name</span>}
+                className="custom-form-item-ant"
+                rules={[
+                  { required: true, message: "Please enter category name" },
+                ]}
+              >
+                <Input
+                  placeholder="Enter category name"
+                  className="custom-input-ant-modal w-full"
+                />
+              </Form.Item>
+            </Form>
+          </div>
         )}
       </Modal>
 
       {/* Add New Category Modal */}
       <Modal
-        title="Add New Category"
         visible={isAddModalVisible}
         onCancel={() => setIsAddModalVisible(false)}
         onOk={handleAddCategory}
         okText="Add Category"
         width={500}
       >
-        <Form form={addForm} layout="vertical">
-          <Form.Item
-            name="categoryName"
-            label="Category Name"
-            rules={[{ required: true, message: "Please enter category name" }]}
+        <div className="flex flex-col gap-2 w-full rounded-md mb-8">
+          <p className="text-[22px] font-bold">Add New Category</p>
+          <Form
+            form={addForm}
+            layout="vertical"
+            className="flex flex-col space-y-6 mb-6"
           >
-            <Input />
-          </Form.Item>
-        </Form>
+            <Form.Item
+              name="categoryName"
+              label={<span className="custom-label-ant">Category Name</span>}
+              className="custom-form-item-ant"
+              rules={[
+                { required: true, message: "Please enter category name" },
+              ]}
+            >
+              <Input
+                placeholder="Enter category name"
+                className="custom-input-ant-modal w-full"
+              />
+            </Form.Item>
+          </Form>
+        </div>
       </Modal>
     </div>
   );
