@@ -106,6 +106,7 @@ const LoginCredentials = () => {
   const [isViewModalVisible, setIsViewModalVisible] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [viewForm] = Form.useForm();
+  const [searchText, setSearchText] = useState("");
 
   const [isRoleModalVisible, setIsRoleModalVisible] = useState(false);
   const [roleForm] = Form.useForm();
@@ -304,6 +305,16 @@ const LoginCredentials = () => {
           <p className="text-[16px] font-normal mt-2">
             Access your account securely with your login credentials.
           </p> */}
+          <div className="!w-[400px]">
+            <Input.Search
+              placeholder="Search"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              allowClear
+              enterButton
+              className="custom-search"
+            />
+          </div>
         </div>
         <div className="flex gap-5">
           <Button

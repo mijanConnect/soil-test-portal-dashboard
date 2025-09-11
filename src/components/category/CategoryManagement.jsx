@@ -108,6 +108,7 @@ const CategoryManagement = () => {
   const [isViewModalVisible, setIsViewModalVisible] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [viewForm] = Form.useForm();
+  const [searchText, setSearchText] = useState("");
 
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   const [addForm] = Form.useForm();
@@ -277,7 +278,17 @@ const CategoryManagement = () => {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row justify-end items-start sm:items-center gap-2 sm:gap-0 mb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-4">
+        <div className="!w-[400px]">
+          <Input.Search
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            allowClear
+            enterButton
+            className="custom-search"
+          />
+        </div>
         <div className="">
           <Button
             type="primary"
