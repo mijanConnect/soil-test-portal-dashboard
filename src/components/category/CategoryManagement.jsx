@@ -240,7 +240,7 @@ const CategoryManagement = () => {
           <Button
             type="primary"
             onClick={() => setIsAddModalVisible(true)}
-            className="bg-primary !text-white hover:!text-secondary hover:!bg-white hover:!border-primary px-[25px] py-[22px] rounded-lg text-[16px] font-semibold"
+            className="bg-primary !text-white hover:!text-secondary hover:!bg-white hover:!border-primary px-[50px] py-[20px] rounded-lg text-[16px] font-medium"
           >
             Add New Category
           </Button>

@@ -38,12 +38,12 @@ const PrivacyPolicy = () => {
     <div className="p-4">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold">Privacy Policy</h2>
-        <GradientButton
+        <Button
           onClick={showModal}
-          className="w-60 bg-secondary text-white h-10"
+          className="bg-primary !text-white hover:!text-secondary hover:!bg-white hover:!border-primary px-[50px] py-[20px] rounded-lg text-[16px] font-medium"
         >
           Update Privacy Policy
-        </GradientButton>
+        </Button>
       </div>
 
       <div className="saved-content mt-6 border p-6 rounded-lg bg-white">
@@ -63,17 +63,17 @@ const PrivacyPolicy = () => {
           <Button
             key="cancel"
             onClick={handleCancel}
-            className="bg-red-500 text-white mr-2 py-5"
+            className="bg-red-500 text-white"
           >
             Cancel
           </Button>,
-          <GradientButton
+          <Button
             key="submit"
             onClick={handleOk}
             className="bg-secondary text-white"
           >
             Update Privacy Policy
-          </GradientButton>,
+          </Button>,
         ]}
       >
         {isModalOpen && (

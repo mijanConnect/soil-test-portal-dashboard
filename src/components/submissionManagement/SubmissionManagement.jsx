@@ -214,14 +214,14 @@ const SubmissionManagement = () => {
           <Button
             type={activeTab === "myDocuments" ? "primary" : "default"}
             onClick={() => setActiveTab("myDocuments")}
-            className="px-[25px] py-[22px] rounded-lg text-[16px] font-semibold"
+            className="px-[50px] py-[20px] rounded-lg text-[16px] font-medium"
           >
             My Documents
           </Button>
           <Button
             type={activeTab === "userDocuments" ? "primary" : "default"}
             onClick={() => setActiveTab("userDocuments")}
-            className="px-[25px] py-[22px] rounded-lg text-[16px] font-semibold"
+            className="px-[50px] py-[20px] rounded-lg text-[16px] font-semibold"
           >
             User's Documents
           </Button>

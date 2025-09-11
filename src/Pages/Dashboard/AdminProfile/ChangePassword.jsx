@@ -21,9 +21,11 @@ const ChangePassword = () => {
             initialValues={{
               remember: true,
             }}
-            style={{
-              // width: "80%",
-            }}
+            style={
+              {
+                // width: "80%",
+              }
+            }
             onFinish={handleChangePassword}
           >
             <div className="mb-[20px] w-[100%]">
@@ -142,24 +144,14 @@ const ChangePassword = () => {
                 width: "100%",
               }}
             >
-              <Form.Item>
-                <GradientButton
-                  type="primary"
-                  htmlType="submit"
-                  block
-                  style={{
-                    border: "none",
-                    height: "40px",
-                    background: "#1D75F2",
-                    color: "white",
-                    borderRadius: "8px",
-                    outline: "none",
-                    width: "150px",
-                  }}
-                >
-                  Update your password
-                </GradientButton>
-              </Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                block
+                style={{ height: 40 }}
+              >
+                Update Password
+              </Button>
             </div>
           </Form>
         </div>
