@@ -35,7 +35,7 @@ const SignUp = () => {
             placeholder="Enter your name"
             style={{
               height: 40,
-              border: "1px solid #3FAE6A",
+              border: "1px solid #48B14C",
               borderRadius: "200px",
             }}
           />
@@ -56,7 +56,7 @@ const SignUp = () => {
             placeholder="Enter your phone number"
             style={{
               height: 40,
-              border: "1px solid #3FAE6A",
+              border: "1px solid #48B14C",
               borderRadius: "200px",
             }}
           />
@@ -72,7 +72,7 @@ const SignUp = () => {
             placeholder="Enter your password"
             style={{
               height: 40,
-              border: "1px solid #3FAE6A",
+              border: "1px solid #48B14C",
               borderRadius: "200px",
             }}
           />
@@ -99,7 +99,7 @@ const SignUp = () => {
             placeholder="Confirm your password"
             style={{
               height: 40,
-              border: "1px solid #3FAE6A",
+              border: "1px solid #48B14C",
               borderRadius: "200px",
             }}
           />
@@ -113,13 +113,12 @@ const SignUp = () => {
             style={{
               width: "100%",
               height: 45,
-              color: "white",
               fontWeight: "400px",
               fontSize: "18px",
               marginTop: 20,
               borderRadius: "200px",
             }}
-            className="flex items-center justify-center bg-[#3FAE6A] rounded-lg"
+            className="flex items-center justify-center border border-primary bg-primary rounded-lg hover:bg-white text-white hover:text-primary transition"
           >
             Sign Up
           </button>
@@ -132,7 +131,7 @@ const SignUp = () => {
           Already have an account?{" "}
           <a
             href="/auth/login"
-            className="text-[#3FAE6A] hover:text-[#1E1E1E] font-semibold"
+            className="text-primary hover:text-[#1E1E1E] font-semibold"
           >
             Log in
           </a>

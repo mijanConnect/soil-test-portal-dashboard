@@ -42,7 +42,7 @@ const ForgotPassword = () => {
               outline: "none",
               boxShadow: "none",
               borderRadius: "200px",
-              borderColor: "#3FAE6A",
+              borderColor: "#48B14C",
             }}
           />
         </Form.Item>
@@ -54,13 +54,13 @@ const ForgotPassword = () => {
             style={{
               width: "100%",
               height: 45,
-              color: "white",
+
               fontWeight: "400px",
               fontSize: "18px",
               borderRadius: "200px",
               marginTop: 20,
             }}
-            className="flex items-center justify-center bg-[#3FAE6A] rounded-lg"
+            className="flex items-center justify-center border border-primary bg-primary rounded-lg hover:bg-white text-white hover:text-primary transition"
           >
             Submit
           </button>
@@ -69,7 +69,7 @@ const ForgotPassword = () => {
       <div className="">
         <Link
           to="/auth/login"
-          className="flex items-center justify-center gap-1 text-[#667085] hover:text-[#3FAE6A] text-center mt-4"
+          className="flex items-center justify-center gap-1 text-[#667085] hover:text-primary text-center mt-4"
         >
           <ArrowLeft size={20} />
           <p>Back to log in</p>

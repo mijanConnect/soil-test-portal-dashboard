@@ -1,27 +1,26 @@
 import { Button, ConfigProvider, Form, Input } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import keyIcon from "../../assets/key.png"
+import keyIcon from "../../assets/key.png";
 import { ArrowLeft } from "lucide-react";
 
 const SetPassword = () => {
-
-  const email = new URLSearchParams(location.search).get("email")
+  const email = new URLSearchParams(location.search).get("email");
   const navigate = useNavigate();
 
-  const onFinish = async(values) => {
-        navigate(`/auth/login`);
+  const onFinish = async (values) => {
+    navigate(`/auth/login`);
   };
 
   return (
     <div>
-      <img src={keyIcon} alt="KeyIcon" className="mb-[24px] mx-auto"/>
-        <div className="text-center mb-8">
-          <h1 className="text-[25px] font-semibold mb-6">Set new password</h1>
-          <p className="w-[90%] mx-auto text-base">
-            Your new password must be different to previously used passwords.
-          </p>
-        </div>
+      <img src={keyIcon} alt="KeyIcon" className="mb-[24px] mx-auto" />
+      <div className="text-center mb-8">
+        <h1 className="text-[25px] font-semibold mb-6">Set new password</h1>
+        <p className="w-[90%] mx-auto text-base">
+          Your new password must be different to previously used passwords.
+        </p>
+      </div>
 
       <Form layout="vertical" onFinish={onFinish}>
         <Form.Item
@@ -115,20 +114,22 @@ const SetPassword = () => {
             style={{
               width: "100%",
               height: 45,
-              color: "white",
               fontWeight: "400px",
               fontSize: "18px",
               borderRadius: "200px",
               marginTop: 20,
             }}
-            className="flex items-center justify-center bg-[#3FAE6A] rounded-lg"
+            className="flex items-center justify-center border border-primary bg-primary rounded-lg hover:bg-white text-white hover:text-primary transition"
           >
             Submit
           </button>
         </Form.Item>
       </Form>
       <div className="">
-        <a href="/auth/login" className="flex items-center justify-center gap-1 text-[#667085] hover:text-[#3FAE6A] text-center mt-4">
+        <a
+          href="/auth/login"
+          className="flex items-center justify-center gap-1 text-[#667085] hover:text-primary text-center mt-4"
+        >
           <ArrowLeft size={20} />
           <p>Back to log in</p>
         </a>

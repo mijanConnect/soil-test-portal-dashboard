@@ -86,7 +86,7 @@ const Login = () => {
             placeholder="Enter your password"
             style={{
               height: 40,
-              border: "1px solid #3FAE6A",
+              border: "1px solid #48B14C",
               outline: "none",
               boxShadow: "none",
               borderRadius: "200px",
@@ -112,7 +112,7 @@ const Login = () => {
           </Form.Item>
 
           <a
-            className="login-form-forgot text-[#1E1E1E] hover:text-[#3FAE6A] rounded-md font-semibold"
+            className="login-form-forgot text-[#1E1E1E] hover:text-primary rounded-md font-semibold"
             href="/auth/forgot-password"
           >
             Forgot password
@@ -126,13 +126,12 @@ const Login = () => {
             style={{
               width: "100%",
               height: 45,
-              color: "white",
               fontWeight: "400px",
               fontSize: "18px",
               marginTop: 20,
               borderRadius: "200px",
             }}
-            className="flex items-center justify-center bg-[#3FAE6A] rounded-lg"
+            className="flex items-center justify-center border border-primary bg-primary rounded-lg hover:bg-white text-white hover:text-primary transition"
           >
             Sign in
           </button>
@@ -150,7 +149,7 @@ const Login = () => {
             fontSize: "18px",
             marginTop: 20,
             borderRadius: "200px",
-            border: "1px solid #3FAE6A",
+            border: "1px solid #48B14C",
           }}
           className="flex items-center justify-center rounded-lg"
         >
@@ -163,7 +162,7 @@ const Login = () => {
           Don't have an account?{" "}
           <a
             href="/auth/signup"
-            className="text-[#3FAE6A] hover:text-[#1E1E1E] font-semibold"
+            className="text-primary hover:text-[#1E1E1E] font-semibold"
           >
             Sign Up
           </a>
