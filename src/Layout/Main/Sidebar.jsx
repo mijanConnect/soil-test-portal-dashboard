@@ -160,7 +160,7 @@ const Sidebar = ({ collapsed, setCollapsed, isMobile }) => {
 
   return (
     <div
-      className={`h-full flex flex-col bg-white border-r border-primary transition-all duration-300 z-40 ${
+      className={`h-full flex flex-col bg-white transition-all duration-300 z-40 ${
         isMobile
           ? `fixed top-0 left-0 w-64 h-full shadow-lg transform ${
               collapsed ? "-translate-x-full" : "translate-x-0"
@@ -180,7 +180,7 @@ const Sidebar = ({ collapsed, setCollapsed, isMobile }) => {
       )}
 
       {/* Menu */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto mt-6">
         <Menu
           mode="inline"
           inlineCollapsed={collapsed && !isMobile}
