@@ -8,6 +8,8 @@ import {
   Tooltip,
   Switch,
   Select,
+  Row,
+  Col,
 } from "antd";
 import { FaTrash } from "react-icons/fa";
 import { EditOutlined } from "@ant-design/icons";
@@ -313,39 +315,125 @@ const LoginCredentials = () => {
         okText="Save Changes"
       >
         {selectedRecord && (
-          <div className="flex flex-col gap-2 w-full border border-primary rounded-md p-4 mt-8 mb-8">
-            <p className="text-[22px] font-bold text-primary">
-              User Management
-            </p>
-            <Form form={viewForm} layout="vertical">
-              <Form.Item name="name" label="User Name">
-                <Input />
-              </Form.Item>
-              <Form.Item name="email" label="Email">
-                <Input />
-              </Form.Item>
-              <Form.Item name="password" label="Password">
-                <Input />
-              </Form.Item>
-              <Form.Item name="phone" label="Phone Number">
-                <Input />
-              </Form.Item>
-              <Form.Item name="role" label="Role">
-                <Select>
-                  {roles.map((role) => (
-                    <Option key={role} value={role}>
-                      {role}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
-              <Form.Item name="status" label="Select Page Access Control">
-                <Select>
-                  <Option value="Active">Full</Option>
-                  <Option value="Inactive">Dashboard</Option>
-                </Select>
-              </Form.Item>
-            </Form>
+          <div className="flex flex-col gap-2 w-full rounded-md mb-8">
+            <p className="text-[22px] font-bold">Edit User</p>
+            <div className="">
+              <Form form={viewForm} layout="vertical" className="mb-4">
+                <Row gutter={[30, 20]}>
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="name"
+                      label="User Name"
+                      className="custom-form-item-ant"
+                      rules={[
+                        { required: true, message: "Please enter user name" },
+                      ]}
+                    >
+                      <Input
+                        placeholder="Enter User Name"
+                        className="custom-input-ant-modal"
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="email"
+                      label="Email"
+                      className="custom-form-item-ant"
+                      rules={[
+                        { required: true, message: "Please enter email" },
+                        { type: "email", message: "Enter a valid email" },
+                      ]}
+                    >
+                      <Input
+                        placeholder="Enter Email"
+                        className="custom-input-ant-modal"
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="password"
+                      label="Password"
+                      className="custom-form-item-ant"
+                      rules={[
+                        { required: true, message: "Please enter password" },
+                      ]}
+                    >
+                      <Input.Password
+                        placeholder="Enter Password"
+                        className="custom-input-ant-modal"
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="phone"
+                      label="Phone Number"
+                      className="custom-form-item-ant"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please enter phone number",
+                        },
+                      ]}
+                    >
+                      <Input
+                        placeholder="Enter Phone Number"
+                        className="custom-input-ant-modal"
+                      />
+                    </Form.Item>
+                  </Col>
+
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="role"
+                      label="Role"
+                      className="custom-form-item-ant-select"
+                      rules={[
+                        { required: true, message: "Please select role" },
+                      ]}
+                    >
+                      <Select
+                        placeholder="Select Role"
+                        className="custom-select-ant-modal"
+                      >
+                        {roles.map((role) => (
+                          <Option key={role} value={role}>
+                            {role}
+                          </Option>
+                        ))}
+                      </Select>
+                    </Form.Item>
+                  </Col>
+
+                  <Col xs={24} sm={12}>
+                    <Form.Item
+                      name="status"
+                      label="Select Page Access Control"
+                      className="custom-form-item-ant-select"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please select access level",
+                        },
+                      ]}
+                    >
+                      <Select
+                        placeholder="Select Access Level"
+                        className="custom-select-ant-modal"
+                      >
+                        <Option value="Active">Full</Option>
+                        <Option value="Inactive">Dashboard</Option>
+                      </Select>
+                    </Form.Item>
+                  </Col>
+                </Row>
+              </Form>
+            </div>
           </div>
         )}
       </Modal>
@@ -377,62 +465,124 @@ const LoginCredentials = () => {
 
       {/* Add New User Modal */}
       <Modal
-        title="Add New User"
+        // title="Add New User"
         visible={isUserModalVisible}
         onCancel={() => setIsUserModalVisible(false)}
         onOk={handleAddUser}
         okText="Add User"
         width={700}
       >
-        <Form form={userForm} layout="vertical">
-          <Form.Item
-            name="name"
-            label="User Name"
-            rules={[{ required: true, message: "Please enter name" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[{ required: true, message: "Please enter email" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            label="Password"
-            rules={[{ required: true, message: "Please enter password" }]}
-          >
-            <Input type="password" />
-          </Form.Item>
-          <Form.Item
-            name="phone"
-            label="Phone Number"
-            rules={[{ required: true, message: "Please enter phone number" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="role"
-            label="Role"
-            rules={[{ required: true, message: "Please select a role" }]}
-          >
-            <Select placeholder="Select role">
-              {roles.map((role) => (
-                <Option key={role} value={role}>
-                  {role}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-          {/* <Form.Item name="status" label="Select Page Access Control">
-            <Select>
-              <Option value="Active">Full</Option>
-              <Option value="Inactive">Dashboard</Option>
-            </Select>
-          </Form.Item> */}
-        </Form>
+        <div className="flex flex-col gap-2 w-full rounded-md mb-8">
+          <p className="text-[22px] font-bold">Add New User</p>
+          <div>
+            <Form form={userForm} layout="vertical" className="mb-4">
+              <Row gutter={[30, 20]}>
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="name"
+                    label="User Name"
+                    className="custom-form-item-ant"
+                    rules={[
+                      { required: true, message: "Please enter user name" },
+                    ]}
+                  >
+                    <Input
+                      placeholder="Enter User Name"
+                      className="custom-input-ant-modal"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="email"
+                    label="Email"
+                    className="custom-form-item-ant"
+                    rules={[
+                      { required: true, message: "Please enter email" },
+                      { type: "email", message: "Enter a valid email" },
+                    ]}
+                  >
+                    <Input
+                      placeholder="Enter Email"
+                      className="custom-input-ant-modal"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="password"
+                    label="Password"
+                    className="custom-form-item-ant"
+                    rules={[
+                      { required: true, message: "Please enter password" },
+                    ]}
+                  >
+                    <Input.Password
+                      placeholder="Enter Password"
+                      className="custom-input-ant-modal"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="phone"
+                    label="Phone Number"
+                    className="custom-form-item-ant"
+                    rules={[
+                      { required: true, message: "Please enter phone number" },
+                    ]}
+                  >
+                    <Input
+                      placeholder="Enter Phone Number"
+                      className="custom-input-ant-modal"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="role"
+                    label="Role"
+                    className="custom-form-item-ant-select"
+                    rules={[
+                      { required: true, message: "Please select a role" },
+                    ]}
+                  >
+                    <Select
+                      placeholder="Select Role"
+                      className="custom-select-ant-modal"
+                    >
+                      {roles.map((role) => (
+                        <Option key={role} value={role}>
+                          {role}
+                        </Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </Col>
+
+                <Col xs={24} sm={12}>
+                  <Form.Item
+                    name="status"
+                    label="Select Page Access Control"
+                    className="custom-form-item-ant-select"
+                  >
+                    <Select
+                      placeholder="Select Access Level"
+                      className="custom-select-ant-modal"
+                    >
+                      <Option value="Active">Full</Option>
+                      <Option value="Inactive">Dashboard</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
+            </Form>
+          </div>
+        </div>
       </Modal>
     </div>
   );

@@ -326,3 +326,57 @@ select {
   font-size: 16px !important;
   padding: 0 30px !important;
 }
+
+/* Modal */
+/* Input field styling */
+.custom-input-ant-modal {
+  padding: 8px 12px !important;
+  background: transparent !important;
+  color: #071952 !important;
+  border: 1px solid #071952 !important;
+  border-radius: 6px !important;
+  height: 40px !important;
+}
+
+.custom-input-ant-modal::placeholder {
+  color: #9d9ea1 !important;
+}
+
+/* Select field styling */
+.custom-select-ant-modal .ant-select-selector {
+  padding: 8px 12px !important;
+  background: transparent !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  border: 1px solid #071952 !important;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+}
+
+/* Selected text & placeholder color */
+.custom-select-ant-modal .ant-select-selection-item,
+.custom-select-ant-modal .ant-select-selection-item span,
+.custom-select-ant-modal .ant-select-selection-placeholder {
+  color: #9d9ea1 !important;
+}
+
+/* Arrow icon styling */
+.custom-select-ant-modal .ant-select-arrow {
+  top: 80% !important;
+  transform: translateY(-50%) !important;
+  color: #071952 !important;
+}
+
+/* Remove focus styles */
+.custom-select-ant-modal.ant-select-focused .ant-select-selector {
+  border-color: #071952 !important;
+  box-shadow: none !important;
+}
+
+/* Reduce bottom margin */
+.custom-form-item-ant {
+  margin-bottom: 0px !important; /* adjust as needed */
+}
+.custom-form-item-ant-select {
+  margin-bottom: 8px !important; /* adjust as needed */
+}
