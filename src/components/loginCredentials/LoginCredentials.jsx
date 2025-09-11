@@ -69,6 +69,36 @@ const LoginCredentials = () => {
       createdAt: "2025-08-05",
       status: "Inactive",
     },
+    {
+      id: 3,
+      name: "Sophia Williams",
+      email: "sophia@email.com",
+      password: "123456",
+      phone: "+1122334455",
+      role: "Employee",
+      createdAt: "2025-08-08",
+      status: "Active",
+    },
+    {
+      id: 4,
+      name: "Michael Brown",
+      email: "michael@email.com",
+      password: "123456",
+      phone: "+2233445566",
+      role: "User",
+      createdAt: "2025-08-12",
+      status: "Inactive",
+    },
+    {
+      id: 5,
+      name: "Emma Davis",
+      email: "emma@email.com",
+      password: "123456",
+      phone: "+3344556677",
+      role: "Admin",
+      createdAt: "2025-08-15",
+      status: "Active",
+    },
   ]);
 
   const [roles, setRoles] = useState(["Admin", "User"]); // Default roles

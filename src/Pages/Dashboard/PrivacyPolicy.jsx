@@ -54,7 +54,7 @@ const PrivacyPolicy = () => {
       </div>
 
       <Modal
-        title="Update Terms & Conditions"
+        title="Update Privacy Policy"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -63,14 +63,14 @@ const PrivacyPolicy = () => {
           <Button
             key="cancel"
             onClick={handleCancel}
-            className="bg-red-500 text-white"
+            className="bg-red-500 text-white border-red-500 hover:text-red-500"
           >
             Cancel
           </Button>,
           <Button
             key="submit"
             onClick={handleOk}
-            className="bg-secondary text-white"
+            className="bg-primary text-white"
           >
             Update Privacy Policy
           </Button>,

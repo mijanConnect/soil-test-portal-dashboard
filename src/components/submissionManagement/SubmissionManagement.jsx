@@ -31,6 +31,33 @@ const SubmissionManagement = () => {
       status: "Inactive",
       fileUrl: SoilTestReport,
     },
+    {
+      id: 3,
+      title: "Soil Fertility Report",
+      email: "bob@email.com",
+      category: "Agriculture",
+      date: "2025-08-10",
+      status: "Active",
+      fileUrl: "/assets/sample1.pdf",
+    },
+    {
+      id: 4,
+      title: "Groundwater Quality Analysis",
+      email: "carol@email.com",
+      category: "Water Test",
+      date: "2025-08-12",
+      status: "Inactive",
+      fileUrl: "/assets/sample2.pdf",
+    },
+    {
+      id: 5,
+      title: "Crop Yield Prediction Report",
+      email: "david@email.com",
+      category: "Research",
+      date: "2025-08-15",
+      status: "Active",
+      fileUrl: "/assets/sample3.pdf",
+    },
   ]);
 
   const [userDocuments, setUserDocuments] = useState([
@@ -51,8 +78,25 @@ const SubmissionManagement = () => {
       category: "Marketing",
       date: "2025-08-06",
       status: "Inactive",
-      fileUrl:
-        "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      fileUrl: SoilTestReport,
+    },
+    {
+      id: 3,
+      title: "Soil Nutrient Analysis",
+      email: "emma@email.com",
+      category: "Agriculture",
+      date: "2025-08-08",
+      status: "Active",
+      fileUrl: "https://www.africau.edu/images/default/sample.pdf",
+    },
+    {
+      id: 4,
+      title: "Pesticide Residue Report",
+      email: "liam@email.com",
+      category: "Environmental Test",
+      date: "2025-08-11",
+      status: "Inactive",
+      fileUrl: "https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf",
     },
   ]);
 
@@ -238,7 +282,7 @@ const SubmissionManagement = () => {
           </Button>
         </div>
 
-        <div className="w-500">
+        <div className="!w-[400px]">
           <Input.Search
             placeholder="Search"
             value={searchText}

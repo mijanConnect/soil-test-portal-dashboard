@@ -13,6 +13,9 @@ import {
   AuditLog,
   loginCredentials,
   Rewords,
+  FileIcon,
+  UploadIcon,
+  CategoryIcon,
 } from "../../components/common/Svg";
 import image4 from "../../assets/image4.png";
 import { useUser } from "../../provider/User";
@@ -60,7 +63,7 @@ const Sidebar = ({ collapsed, setCollapsed, isMobile }) => {
   const rawMenuItems = [
     {
       key: "/submission-management",
-      icon: renderIcon(People, "/submission-management"),
+      icon: renderIcon(FileIcon, "/submission-management"),
       label: (
         <Link to="/submission-management">
           {collapsed ? "" : "Submission Management"}
@@ -78,7 +81,7 @@ const Sidebar = ({ collapsed, setCollapsed, isMobile }) => {
     },
     {
       key: "/upload-documents",
-      icon: renderIcon(People, "/upload-documents"),
+      icon: renderIcon(UploadIcon, "/upload-documents"),
       label: (
         <Link to="/upload-documents">
           {collapsed ? "" : "Upload New Documents"}
@@ -88,7 +91,7 @@ const Sidebar = ({ collapsed, setCollapsed, isMobile }) => {
     },
     {
       key: "/category-management",
-      icon: renderIcon(People, "/category-management"),
+      icon: renderIcon(CategoryIcon, "/category-management"),
       label: (
         <Link to="/category-management">
           {collapsed ? "" : "Category Management"}
