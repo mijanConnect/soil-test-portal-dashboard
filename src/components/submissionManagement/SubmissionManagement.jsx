@@ -3,12 +3,15 @@ import { Table, Button, Modal, Input, Tooltip, Switch } from "antd";
 import { FaTrash } from "react-icons/fa";
 import { EyeOutlined } from "@ant-design/icons";
 import Swal from "sweetalert2";
+import { Document, Page, pdfjs } from "react-pdf";
+// Set the worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import SoilTestReport from "../../../src/assets/soil-test-report.jpg";
 
 const SubmissionManagement = () => {
-  // Active tab state
   const [activeTab, setActiveTab] = useState("myDocuments");
+  const [numPages, setNumPages] = useState(null);
 
-  // Sample data for My Documents
   const [myDocuments, setMyDocuments] = useState([
     {
       id: 1,
@@ -17,8 +20,7 @@ const SubmissionManagement = () => {
       category: "Soil Test",
       date: "2025-08-01",
       status: "Active",
-      fileUrl:
-        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      fileUrl: "/assets/dummy-pdf_2.pdf", // ✅ Use string path
     },
     {
       id: 2,
@@ -27,12 +29,10 @@ const SubmissionManagement = () => {
       category: "Soil Test",
       date: "2025-08-05",
       status: "Inactive",
-      fileUrl:
-        "https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U",
+      fileUrl: SoilTestReport,
     },
   ]);
 
-  // Sample data for User's Documents
   const [userDocuments, setUserDocuments] = useState([
     {
       id: 1,
@@ -68,9 +68,9 @@ const SubmissionManagement = () => {
   const handleCloseViewModal = () => {
     setIsViewModalVisible(false);
     setSelectedRecord(null);
+    setNumPages(null);
   };
 
-  // Determine current data
   const currentData =
     activeTab === "myDocuments"
       ? myDocuments.filter(
@@ -208,8 +208,8 @@ const SubmissionManagement = () => {
 
   return (
     <div>
+      {/* Tabs and Search */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-2">
-        {/* Tabs */}
         <div className="flex gap-3">
           <Button
             type="primary"
@@ -238,7 +238,6 @@ const SubmissionManagement = () => {
           </Button>
         </div>
 
-        {/* Search */}
         <div className="w-500">
           <Input.Search
             placeholder="Search"
@@ -269,26 +268,47 @@ const SubmissionManagement = () => {
       <Modal
         visible={isViewModalVisible}
         onCancel={handleCloseViewModal}
-        width={800}
+        width={1000}
         footer={null}
       >
-        {selectedRecord && (
-          <div className="flex flex-col gap-2 w-full border border-primary rounded-md p-4 mt-8">
-            <p className="text-[22px] font-bold text-primary mb-4">
-              {selectedRecord.title}
-            </p>
+        {selectedRecord?.fileUrl && (
+          <div className="mt-8">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-lg font-semibold">{selectedRecord.title}</h3>
+              <a
+                href={selectedRecord.fileUrl}
+                download
+                className="py-1 border border-primary bg-primary hover:bg-white text-white hover:text-primary hover:border hover:border-primary transition px-8 rounded"
+              >
+                Download
+              </a>
+            </div>
             {selectedRecord.fileUrl.endsWith(".pdf") ? (
-              <iframe
-                src={selectedRecord.fileUrl}
-                style={{ width: "100%", height: "500px" }}
-                title="PDF Preview"
-              />
+              <div
+                style={{ height: "600px", overflow: "auto" }}
+                className="border border-primary mt-4 rounded-lg p-4"
+              >
+                <Document
+                  file={selectedRecord.fileUrl}
+                  onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                >
+                  {Array.from(new Array(numPages), (el, index) => (
+                    <Page
+                      key={`page_${index + 1}`}
+                      pageNumber={index + 1}
+                      width={760}
+                    />
+                  ))}
+                </Document>
+              </div>
             ) : (
-              <img
-                src={selectedRecord.fileUrl}
-                alt={selectedRecord.title}
-                className="w-full h-auto rounded-md"
-              />
+              <div className="border border-primary mt-4 rounded-lg p-4">
+                <img
+                  src={selectedRecord.fileUrl}
+                  alt={selectedRecord.title}
+                  className="w-full h-auto rounded-md"
+                />
+              </div>
             )}
           </div>
         )}
